@@ -1,0 +1,14 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+import feedparser
+
+# Create your views here.
+
+def main(request, resource):
+    parsedrss = feedparser.parse("https://twitrss.me/twitter_user_to_rss/"
+                            + "?user=" + resource)
+    print parsedrss.entries[0].value
+
+    return HttpResponse("")
+
+# Use nohup to make your server to remain open.
